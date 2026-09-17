@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andrew Norby — digital marketing student at the Ivy College of Business. Search, email, and paid social work with measured results.">
+  <title>Andrew Norby | Digital Marketing Portfolio</title>
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Global navigation is rendered by nav.js on all four pages. -->
+  <div data-site-header></div>
+  <noscript>
+    <div class="wrap nav__fallback">
+      <p><strong>Navigation:</strong>
+        <a href="./index.html">Home</a> &middot;
+        <a href="./about.html">About</a> &middot;
+        <a href="./portfolio.html">Portfolio</a> &middot;
+        <a href="./contact.html">Contact</a>
+      </p>
+    </div>
+  </noscript>
+
+  <main id="main">
+
+    <!-- Above the fold: who this is, what is offered, and the next step. -->
+    <section class="hero">
+      <div class="wrap hero__inner">
+        <div>
+          <span class="eyebrow">DIGITAL MARKETING &middot; IVY COLLEGE OF BUSINESS</span>
+          <h1>I build websites that people can actually use.</h1>
+          <p>
+            I am Andrew Norby, a digital marketing student who treats a website as a
+            marketing asset rather than a technical project. Every page here starts
+            from three questions: who is visiting, why, and what should they do next.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="./portfolio.html">See the work</a>
+            <a class="btn btn--secondary" href="./contact.html">Leave feedback</a>
+          </div>
+          <div class="stat-row">
+            <div class="stat">
+              <span class="stat__num">4</span>
+              <span class="stat__label">Case studies</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">&lt;1.5s</span>
+              <span class="stat__label">Largest contentful paint</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num">16.5:1</span>
+              <span class="stat__label">Body text contrast ratio</span>
+            </div>
+          </div>
+        </div>
+        <img class="hero__art" src="./images/hero-analytics.svg"
+             alt="Illustration of a marketing dashboard with a rising trend line and channel performance bars"
+             width="420" height="320">
+      </div>
+    </section>
+
+    <!-- What is on offer, broken into clearly defined areas so different
+         visitors can find the part that concerns them. -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">WHAT I DO</span>
+          <h2>Three clearly defined areas</h2>
+          <p>
+            Visitors arrive with different goals, so the page is split into blocks
+            instead of one long wall of text. Pick the one that matches why you came.
+          </p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">01</div>
+            <h3>Front-end build</h3>
+            <p>
+              Hand-written, semantic HTML and CSS. No framework, no page builder —
+              just a structure a search engine and a screen reader can both read.
+            </p>
+            <p><a href="./portfolio.html">View the build work</a></p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">02</div>
+            <h3>UX and usability</h3>
+            <p>
+              Task-based testing with people outside the project, because project
+              members carry familiarity bias and stop seeing the confusing parts.
+            </p>
+            <p><a href="./about.html">How I test</a></p>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">03</div>
+            <h3>Measurement</h3>
+            <p>
+              Core Web Vitals, conversion funnels, and A/B tests on single isolated
+              variables — never a full redesign that hides which change worked.
+            </p>
+            <p><a href="./portfolio.html#results">See the numbers</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principle block: names the course concepts the site is built on. -->
+    <section class="section section--alt">
+      <div class="wrap split">
+        <div>
+          <span class="eyebrow">DESIGN PRINCIPLES</span>
+          <h2>Boring navigation is good navigation</h2>
+          <p>
+            Good web navigation is clear, precise, familiar and consistent. It is
+            not the place to be creative. The menu above is in the same position,
+            the same order, and the same style on all four pages, and the logo in
+            the top-left corner returns you home from anywhere.
+          </p>
+          <p>
+            <a href="./about.html">Read the full rationale</a>
+          </p>
+        </div>
+        <div class="grid grid--2">
+          <div class="card">
+            <h3>Visual hierarchy</h3>
+            <p>Larger, higher elements read as more important. The type scale steps in fixed ratios so headings never compete.</p>
+          </div>
+          <div class="card">
+            <h3>Negative space</h3>
+            <p>Unmarked space between elements reduces overload and pushes the eye toward the call to action.</p>
+          </div>
+          <div class="card">
+            <h3>Contrast</h3>
+            <p>Near-black text on white clears WCAG AA comfortably, so body copy stays legible on a phone in daylight.</p>
+          </div>
+          <div class="card">
+            <h3>Above the fold</h3>
+            <p>The offer, the value proposition and the primary CTA are all visible before any scrolling happens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Single, unmistakable next step. -->
+    <section class="section">
+      <div class="wrap">
+        <div class="callout">
+          <h2>What do you want to do next?</h2>
+          <p>
+            The portfolio holds four annotated case studies. The contact page has a
+            short feedback form — five fields, because every extra field is friction.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="./contact.html">Open the feedback form</a>
+            <a class="btn btn--secondary" href="./portfolio.html">Browse case studies</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-site-footer></div>
+  <script src="./nav.js"></script>
+</body>
+</html>
