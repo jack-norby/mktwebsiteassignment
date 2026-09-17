@@ -1,0 +1,521 @@
+/* ============================================================
+   Global stylesheet
+   Design decisions are driven by the course materials:
+   - Sans-serif (Arial/Helvetica family) for screen legibility  [Web Dev 1, p.19]
+   - Blue primary = trust/calm, accessible for red-green CVD    [Reading 02, §2]
+   - High contrast body text, generous negative space           [Reading 02, §2]
+   - Important content above the fold                           [Web Dev 1, p.18]
+   - Print stylesheet capped at 750px                           [Web Dev 1, p.14]
+   ============================================================ */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  /* Monochromatic blue palette + one warm accent for CTAs */
+  --navy-900: #0d1b2a;
+  --navy-800: #142c45;
+  --navy-700: #1b3a5c;
+  --blue-600: #1d6fb8;
+  --blue-500: #2a84d2;
+  --blue-100: #e3effa;
+  --blue-050: #f3f8fd;
+
+  --accent-600: #b8500f;   /* urgency/action, used sparingly */
+  --accent-500: #d96319;
+
+  --ink:        #14202b;   /* body text: 14.6:1 on white */
+  --ink-muted:  #4a5a68;   /* secondary text: 7.3:1 on white */
+  --surface:    #ffffff;
+  --surface-alt:#f5f8fb;
+  --line:       #d6e0e9;
+
+  --ok-600:     #0f7a4f;
+
+  /* Type scale — logical, ~1.25 ratio, so hierarchy is unambiguous */
+  --step--1: 0.875rem;
+  --step-0:  1rem;
+  --step-1:  1.25rem;
+  --step-2:  1.563rem;
+  --step-3:  1.953rem;
+  --step-4:  2.441rem;
+
+  /* Spacing scale keeps white space consistent */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4.5rem;
+
+  --radius: 10px;
+  --shadow-1: 0 1px 2px rgba(13, 27, 42, 0.08), 0 2px 8px rgba(13, 27, 42, 0.06);
+  --shadow-2: 0 6px 24px rgba(13, 27, 42, 0.14);
+
+  --measure: 68ch;          /* readable line length */
+  --wrap: 1120px;
+  --transition: 160ms ease;
+}
+
+/* ---------- 2. Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-text-size-adjust: 100%;
+}
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  color: var(--navy-900);
+  margin: 0 0 var(--space-3);
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-4); letter-spacing: -0.02em; }
+h2 { font-size: var(--step-3); letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); }
+h4 { font-size: var(--step-0); text-transform: none; }
+
+p, ul, ol { margin: 0 0 var(--space-3); max-width: var(--measure); }
+ul, ol { padding-left: 1.25em; }
+li + li { margin-top: var(--space-1); }
+
+/* Web convention: in-text links are a different color AND underlined,
+   and visited links change color so people remember where they've been. */
+a { color: var(--blue-600); text-decoration: underline; text-underline-offset: 2px; }
+a:visited { color: var(--navy-700); }
+a:hover { color: var(--accent-600); }
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--blue-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link — keyboard users get past the nav */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--navy-900);
+  color: #fff;
+  padding: var(--space-2) var(--space-3);
+  z-index: 100;
+}
+.skip-link:focus { left: var(--space-3); top: var(--space-3); }
+
+/* ---------- 3. Layout helpers ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.section { padding-block: var(--space-6); }
+.section--alt { background: var(--surface-alt); border-block: 1px solid var(--line); }
+
+.section-head { max-width: var(--measure); margin-bottom: var(--space-5); }
+.section-head p { color: var(--ink-muted); font-size: var(--step-1); margin-bottom: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--step--1);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: var(--blue-600);
+  margin-bottom: var(--space-2);
+}
+
+.grid { display: grid; gap: var(--space-4); }
+.grid--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid--2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+/* ---------- 4. Header + navigation (injected by nav.js) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: saturate(150%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 68px;
+}
+
+/* Convention: brand logo top-left, and it links home from every page. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: bold;
+  font-size: var(--step-1);
+  color: var(--navy-900);
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+.brand:visited { color: var(--navy-900); }
+.brand:hover { color: var(--blue-600); }
+.brand img { width: 34px; height: 34px; }
+.brand__name { white-space: nowrap; }
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+.nav__link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: var(--step--1);
+  border-bottom: 3px solid transparent;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.nav__link:visited { color: var(--ink); }
+/* Interactive feedback: every nav item has an explicit hover state. */
+.nav__link:hover { background: var(--blue-100); color: var(--navy-900); }
+.nav__link[aria-current="page"] {
+  color: var(--blue-600);
+  border-bottom-color: var(--blue-600);
+  background: var(--blue-050);
+}
+/* The current page's link still needs its own hover state, otherwise it is the
+   one item in the menu that gives no feedback when the pointer is over it. */
+.nav__link[aria-current="page"]:hover { background: var(--blue-100); color: var(--navy-900); }
+
+/* Hamburger button — hidden on desktop, shown by the media query below. */
+.nav__toggle {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--surface);
+  color: var(--navy-900);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.nav__toggle:hover { background: var(--blue-100); border-color: var(--blue-500); }
+.nav__bars { display: grid; gap: 4px; }
+.nav__bars span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.nav__fallback { font-size: var(--step--1); }
+
+/* ---------- 5. Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.4rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-weight: bold;
+  font-size: var(--step-0);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition),
+              color var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.btn--primary { background: var(--accent-600); color: #fff; }
+.btn--primary:visited { color: #fff; }
+.btn--primary:hover { background: var(--accent-500); transform: translateY(-2px); box-shadow: var(--shadow-2); }
+.btn--secondary { background: var(--surface); color: var(--navy-900); border-color: var(--navy-700); }
+.btn--secondary:visited { color: var(--navy-900); }
+.btn--secondary:hover { background: var(--navy-900); color: #fff; transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+/* ---------- 6. Hero (above the fold) ---------- */
+.hero {
+  background:
+    radial-gradient(120% 120% at 100% 0%, var(--navy-700) 0%, var(--navy-900) 55%);
+  color: #fff;
+  padding-block: var(--space-7);
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.hero h1 { color: #fff; font-size: clamp(2rem, 1.2rem + 3.2vw, 3.25rem); }
+.hero p { color: #d8e5f2; font-size: var(--step-1); }
+.hero .eyebrow { color: #8fc2ee; }
+.hero__art { filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.35)); }
+
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.stat__num { display: block; font-size: var(--step-3); font-weight: bold; color: #fff; }
+.stat__label { font-size: var(--step--1); color: #a9c4dc; }
+
+/* ---------- 7. Cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); border-color: var(--blue-500); }
+.card h3 { margin-bottom: var(--space-2); }
+.card p:last-child { margin-bottom: 0; }
+.card__icon {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: var(--radius);
+  background: var(--blue-100);
+  color: var(--blue-600);
+  font-size: var(--step-1);
+  font-weight: bold;
+  margin-bottom: var(--space-3);
+}
+
+/* Portfolio cards */
+.work { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.work__thumb { border-bottom: 1px solid var(--line); background: var(--blue-050); }
+.work__thumb img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.work__body { padding: var(--space-4); display: flex; flex-direction: column; flex: 1; }
+.work__body h3 { margin-bottom: var(--space-1); }
+.tag-row { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-3); list-style: none; padding: 0; }
+.tag {
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  background: var(--blue-100);
+  color: var(--navy-700);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.work__result {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--line);
+  font-size: var(--step--1);
+  color: var(--ok-600);
+  font-weight: bold;
+}
+
+/* ---------- 8. Content blocks ---------- */
+.prose { max-width: var(--measure); }
+.prose h2 { margin-top: var(--space-5); }
+.prose h2:first-child { margin-top: 0; }
+
+.split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--space-6); align-items: start; }
+
+.callout {
+  background: var(--blue-050);
+  border-left: 4px solid var(--blue-600);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.callout p:last-child { margin-bottom: 0; }
+
+.skill-list { list-style: none; padding: 0; }
+.skill-list li { margin-bottom: var(--space-3); }
+.skill-list strong { display: block; color: var(--navy-900); }
+.meter {
+  /* A span by default, so it needs an explicit block box for height to apply. */
+  display: block;
+  height: 8px;
+  background: var(--blue-100);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: var(--space-1);
+  max-width: 320px;
+}
+.meter > span { display: block; height: 100%; background: var(--blue-600); border-radius: 999px; }
+
+.timeline { list-style: none; padding: 0; border-left: 2px solid var(--line); margin-left: var(--space-2); }
+.timeline li { position: relative; padding: 0 0 var(--space-4) var(--space-4); }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -7px; top: 8px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--blue-600);
+  border: 2px solid var(--surface);
+}
+.timeline time { display: block; font-size: var(--step--1); font-weight: bold; color: var(--blue-600); }
+
+/* FAQ — trust signal, uses native disclosure so it works without JS */
+.faq { max-width: var(--measure); }
+.faq details {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  margin-bottom: var(--space-2);
+}
+.faq summary {
+  cursor: pointer;
+  padding: var(--space-3);
+  font-weight: bold;
+  color: var(--navy-900);
+  transition: background var(--transition);
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: " +"; color: var(--blue-600); float: right; }
+.faq details[open] summary::after { content: " \2013"; }
+.faq summary:hover { background: var(--blue-050); }
+.faq details > p { padding: 0 var(--space-3) var(--space-3); margin: 0; }
+
+/* ---------- 9. Embedded Google Form ---------- */
+.form-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: var(--space-4);
+}
+.form-frame {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-alt);
+}
+.form-frame iframe {
+  display: block;
+  width: 100%;
+  height: 1100px;   /* tall enough that the form does not double-scroll on desktop */
+  border: 0;
+}
+.form-note { font-size: var(--step--1); color: var(--ink-muted); margin-top: var(--space-3); }
+
+.contact-list { list-style: none; padding: 0; }
+.contact-list li { margin-bottom: var(--space-3); }
+.contact-list strong { display: block; font-size: var(--step--1); color: var(--ink-muted); }
+
+/* ---------- 10. Footer (injected by nav.js) ---------- */
+.site-footer {
+  background: var(--navy-900);
+  color: #c6d6e6;
+  padding-block: var(--space-5);
+  margin-top: var(--space-6);
+}
+.site-footer a { color: #9fc8ee; }
+.site-footer a:visited { color: #b9b9e6; }
+.site-footer a:hover { color: #fff; }
+.site-footer__inner { display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; }
+.site-footer h4 { color: #fff; font-size: var(--step--1); letter-spacing: 0.06em; margin-bottom: var(--space-2); }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: var(--space-1); }
+.site-footer__legal {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  font-size: var(--step--1);
+}
+
+/* ============================================================
+   11. Responsive design — mobile-last breakpoints
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  /* The headline and CTA stay first so the offer is still above the fold on a
+     phone; the illustration follows rather than pushing the text down. */
+  .hero__art { width: 100%; max-width: 380px; margin-inline: auto; }
+  .split { grid-template-columns: 1fr; gap: var(--space-5); }
+  .form-frame iframe { height: 1250px; }
+}
+
+/* Phone: nav collapses behind the hamburger button */
+@media (max-width: 720px) {
+  :root { --step-4: 2rem; --step-3: 1.6rem; }
+
+  .site-header__inner { flex-wrap: wrap; min-height: 60px; padding-block: var(--space-2); }
+
+  .nav__toggle { display: inline-flex; }
+
+  .nav {
+    flex-basis: 100%;
+    display: none;
+    padding-bottom: var(--space-3);
+  }
+  .nav.is-open { display: block; }
+
+  .nav__list { flex-direction: column; align-items: stretch; gap: var(--space-1); }
+  .nav__link {
+    padding: 0.8rem var(--space-3);
+    font-size: var(--step-0);
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .nav__link[aria-current="page"] { border-left: 4px solid var(--blue-600); border-bottom-color: var(--line); }
+
+  .section { padding-block: var(--space-5); }
+  .hero { padding-block: var(--space-6); }
+  .btn { width: 100%; }
+  .btn-row { flex-direction: column; }
+  .stat-row { gap: var(--space-4); }
+  .site-footer__inner { flex-direction: column; gap: var(--space-4); }
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* ============================================================
+   12. Print stylesheet
+   Course note: printers chop content wider than 600-750px, so the
+   printable width is capped and navigation chrome is dropped.
+   ============================================================ */
+@media print {
+  .site-header, .site-footer, .nav__toggle, .btn-row, .form-frame { display: none !important; }
+  body { color: #000; background: #fff; font-size: 11pt; }
+  .wrap { max-width: 750px; padding-inline: 0; }
+  .hero { background: none; color: #000; padding-block: 0; }
+  .hero h1, .hero p, .stat__num { color: #000; }
+  .card, .callout { box-shadow: none; border: 1px solid #999; break-inside: avoid; }
+  a { color: #000; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; }
+}
