@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jack Norby — Marketing, Entrepreneurship and Applied AI student at Iowa State University. Social media campaigns, team building, and front-end web work.">
+  <meta name="description" content="Jack Norby — marketing student at Iowa State University. Social media marketing campaigns, team building, and hand-built web pages.">
   <title>Jack Norby | Marketing &amp; Entrepreneurship Student</title>
   <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
@@ -11,167 +11,168 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Global navigation is rendered by nav.js on all four pages. -->
-  <div data-site-header></div>
-  <noscript>
-    <div class="wrap nav__fallback">
-      <p><strong>Navigation:</strong>
-        <a href="./index.html">Home</a> &middot;
-        <a href="./about.html">About</a> &middot;
-        <a href="./portfolio.html">Portfolio</a> &middot;
-        <a href="./contact.html">Contact</a>
-      </p>
+  <!-- The page area. The background showing around it on all four sides is
+       the body/background area from the layout diagram. -->
+  <div class="page-frame">
+
+    <!-- Logo, informational graphics, primary nav, secondary nav (nav.js) -->
+    <div data-site-header></div>
+    <noscript>
+      <div class="shell nav__fallback">
+        <p><strong>Navigation:</strong>
+          <a href="./index.html">Home</a> &middot;
+          <a href="./about.html">About</a> &middot;
+          <a href="./portfolio.html">Portfolio</a> &middot;
+          <a href="./contact.html">Contact</a>
+        </p>
+      </div>
+    </noscript>
+
+    <div class="page-grid">
+
+      <!-- Left column: primary and secondary navigation (nav.js) -->
+      <aside data-site-sidebar></aside>
+
+      <!-- Centre column: hero image at top, then the main content -->
+      <div class="col-mid">
+        <main id="main">
+
+          <figure class="hero-image">
+            <img src="./images/hero-home.svg"
+                 alt="Title banner reading Jack Norby, Marketing, Entrepreneurship and Applied AI, over rising bars"
+                 width="1200" height="380">
+          </figure>
+
+          <section class="section">
+            <div class="wrap">
+              <span class="eyebrow">IOWA STATE UNIVERSITY &middot; CLASS OF 2028</span>
+              <h1>I run marketing campaigns and build the teams that deliver them</h1>
+              <p>
+                I am Jack Norby, a marketing, entrepreneurship and applied AI
+                student. I have run social media marketing campaigns across four
+                channels for a moving company, recruited the seven-person team that
+                opened a new market in Ames, and spent a summer responsible for a
+                cabin of campers in Colorado.
+              </p>
+              <p>
+                My marketing work has always run on a small budget, which is a
+                useful constraint. It means every campaign has to earn attention
+                rather than buy it, and every page has to say what it offers before
+                a visitor decides to leave.
+              </p>
+              <p>
+                What carries across all of it is the same idea: people decide
+                quickly, and they decide on whether something feels clear and
+                trustworthy. That holds just as true for a thumbnail someone scrolls
+                past in half a second as it does for the first screen of a website.
+                So I try to earn the second glance rather than assume it, and to make
+                the next step obvious once I have it.
+              </p>
+            </div>
+          </section>
+
+          <section class="section" id="what-i-do">
+            <div class="wrap">
+              <h2>Three things I am good at</h2>
+              <p>
+                Visitors arrive for different reasons, so this page is split into
+                clearly defined areas instead of one wall of text.
+              </p>
+
+              <div class="grid grid--3">
+                <article class="card">
+                  <div class="card__icon" aria-hidden="true">01</div>
+                  <h3>Social media marketing</h3>
+                  <p>
+                    Campaigns across Instagram, Facebook, TikTok and Google, run as
+                    one effort rather than four separate accounts. I shoot the photo
+                    and video myself, on the job.
+                  </p>
+                  <p><a href="./portfolio.html">See the campaign work</a></p>
+                </article>
+
+                <article class="card">
+                  <div class="card__icon" aria-hidden="true">02</div>
+                  <h3>Building teams</h3>
+                  <p>
+                    I opened the Ames market for UniMovers by recruiting and
+                    onboarding more than seven student employees independently.
+                  </p>
+                  <p><a href="./about.html">How that went</a></p>
+                </article>
+
+                <article class="card">
+                  <div class="card__icon" aria-hidden="true">03</div>
+                  <h3>Leading people</h3>
+                  <p>
+                    A weekly mentorship group through the school year, and
+                    round-the-clock responsibility for youth campers over a summer.
+                  </p>
+                  <p><a href="./about.html">Leadership background</a></p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="section section--alt" id="principles">
+            <div class="wrap">
+              <h2>Boring navigation is good navigation</h2>
+              <p>
+                I built this site by hand for my web development coursework. Good
+                navigation is clear, precise, familiar and consistent, and it is not
+                the place to be creative. The menu is in the same position and order
+                on all four pages, and the logo in the top-left corner returns you
+                home from anywhere.
+              </p>
+
+              <div class="grid grid--2">
+                <div class="card">
+                  <h3>Visual hierarchy</h3>
+                  <p>Larger, higher elements read as more important, on a fixed type scale.</p>
+                </div>
+                <div class="card">
+                  <h3>Negative space</h3>
+                  <p>Space between elements reduces overload and guides the eye to the next action.</p>
+                </div>
+                <div class="card">
+                  <h3>Contrast</h3>
+                  <p>Near-black text on white clears WCAG AA, so copy stays legible on a phone.</p>
+                </div>
+                <div class="card">
+                  <h3>Above the fold</h3>
+                  <p>What I offer is visible before any scrolling happens.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="next-step">
+            <div class="wrap">
+              <div class="callout">
+                <h2>What do you want to do next?</h2>
+                <p>
+                  The portfolio breaks down the marketing campaigns and the team
+                  building. The contact page has a short feedback form.
+                </p>
+                <div class="btn-row">
+                  <a class="btn btn--primary" href="./contact.html">Open the feedback form</a>
+                  <a class="btn btn--secondary" href="./portfolio.html">Browse the work</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </main>
+      </div>
+
+      <!-- Right column: sticky content (nav.js) -->
+      <aside data-site-rail></aside>
+
     </div>
-  </noscript>
 
-  <main id="main">
+    <div data-site-footer></div>
+  </div>
 
-    <!-- Above the fold: who I am, what I have done, and the next step. -->
-    <section class="hero">
-      <div class="wrap hero__inner">
-        <div>
-          <span class="eyebrow">IOWA STATE UNIVERSITY &middot; CLASS OF 2028</span>
-          <h1>I run campaigns and build the teams that deliver them.</h1>
-          <p>
-            I am Jack Norby, a Marketing, Entrepreneurship and Applied AI student.
-            I have run social campaigns across four channels for a moving company,
-            recruited the seven-person crew that opened a new market, and spent a
-            summer responsible for a cabin of campers around the clock.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn--primary" href="./portfolio.html">See what I have done</a>
-            <a class="btn btn--secondary" href="./about.html">More about me</a>
-          </div>
-          <div class="stat-row">
-            <div class="stat">
-              <span class="stat__num">4</span>
-              <span class="stat__label">Channels run in parallel</span>
-            </div>
-            <div class="stat">
-              <span class="stat__num">7+</span>
-              <span class="stat__label">Team members recruited</span>
-            </div>
-            <div class="stat">
-              <span class="stat__num">3</span>
-              <span class="stat__label">Years customer-facing</span>
-            </div>
-          </div>
-        </div>
-        <img class="hero__art" src="./images/hero-analytics.svg"
-             alt="Illustration of a marketing dashboard with a rising trend line and channel performance bars"
-             width="420" height="320">
-      </div>
-    </section>
-
-    <!-- The offer, split into clearly defined areas so different visitors can
-         find the part that concerns them. -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">WHAT I DO</span>
-          <h2>Three things I am good at</h2>
-          <p>
-            Visitors arrive with different reasons, so this page is split into
-            blocks instead of one wall of text. Pick the one that matches yours.
-          </p>
-        </div>
-
-        <div class="grid grid--3">
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">01</div>
-            <h3>Social media marketing</h3>
-            <p>
-              Multi-channel campaigns across Instagram, Facebook, TikTok and Google,
-              run as one effort rather than four. I shoot the photo and video myself,
-              on the job, which is why it reads as real.
-            </p>
-            <p><a href="./portfolio.html">See the campaign work</a></p>
-          </article>
-
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">02</div>
-            <h3>Building teams</h3>
-            <p>
-              I opened a new market for UniMovers by recruiting and onboarding 7+
-              student employees independently &mdash; sourcing, interviewing and
-              training, not just posting a listing.
-            </p>
-            <p><a href="./about.html">How that went</a></p>
-          </article>
-
-          <article class="card">
-            <div class="card__icon" aria-hidden="true">03</div>
-            <h3>Leading people</h3>
-            <p>
-              A weekly mentorship group for college men through the school year, and
-              round-the-clock responsibility for youth campers over a summer in the
-              Colorado mountains.
-            </p>
-            <p><a href="./about.html">Leadership background</a></p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Principle block: names the course concepts this site is built on. -->
-    <section class="section section--alt">
-      <div class="wrap split">
-        <div>
-          <span class="eyebrow">ABOUT THIS SITE</span>
-          <h2>Boring navigation is good navigation</h2>
-          <p>
-            I built this site by hand for my web development coursework. Good web
-            navigation is clear, precise, familiar and consistent &mdash; it is not
-            the place to be creative. The menu above is in the same position, the
-            same order and the same style on all four pages, and the logo in the
-            top-left corner returns you home from anywhere.
-          </p>
-          <p>
-            <a href="./about.html">Read the full design rationale</a>
-          </p>
-        </div>
-        <div class="grid grid--2">
-          <div class="card">
-            <h3>Visual hierarchy</h3>
-            <p>Larger, higher elements read as more important. The type scale steps in fixed ratios so headings never compete.</p>
-          </div>
-          <div class="card">
-            <h3>Negative space</h3>
-            <p>Unmarked space between elements reduces overload and pushes the eye toward the call to action.</p>
-          </div>
-          <div class="card">
-            <h3>Contrast</h3>
-            <p>Near-black text on white clears WCAG AA comfortably, so body copy stays legible on a phone in daylight.</p>
-          </div>
-          <div class="card">
-            <h3>Above the fold</h3>
-            <p>Who I am and what I have done are both visible before any scrolling happens.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Single, unmistakable next step. -->
-    <section class="section">
-      <div class="wrap">
-        <div class="callout">
-          <h2>What do you want to do next?</h2>
-          <p>
-            The portfolio page breaks down the campaign and team-building work. The
-            contact page has a short feedback form &mdash; five questions, because
-            every extra field is friction.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn--primary" href="./contact.html">Open the feedback form</a>
-            <a class="btn btn--secondary" href="./portfolio.html">Browse the work</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <div data-site-footer></div>
   <script src="./nav.js"></script>
 </body>
 </html>

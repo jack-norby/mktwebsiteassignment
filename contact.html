@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Jack Norby, or leave feedback on this site through the embedded Google Form.">
+  <meta name="description" content="Contact Jack Norby, or leave feedback on this site through the embedded Google Form. Marketing internship enquiries welcome.">
   <title>Contact | Jack Norby</title>
   <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
@@ -11,161 +11,182 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <div data-site-header></div>
-  <noscript>
-    <div class="wrap nav__fallback">
-      <p><strong>Navigation:</strong>
-        <a href="./index.html">Home</a> &middot;
-        <a href="./about.html">About</a> &middot;
-        <a href="./portfolio.html">Portfolio</a> &middot;
-        <a href="./contact.html">Contact</a>
-      </p>
-    </div>
-  </noscript>
+  <div class="page-frame">
+    <div data-site-header></div>
+    <noscript>
+      <div class="shell nav__fallback">
+        <p><strong>Navigation:</strong>
+          <a href="./index.html">Home</a> &middot;
+          <a href="./about.html">About</a> &middot;
+          <a href="./portfolio.html">Portfolio</a> &middot;
+          <a href="./contact.html">Contact</a>
+        </p>
+      </div>
+    </noscript>
 
-  <main id="main">
+    <div class="page-grid">
+      <aside data-site-sidebar></aside>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">CONTACT</span>
-          <h1>Tell me what worked and what did not</h1>
-          <p>
-            The form below is short on purpose — every extra field is friction
-            between a visitor and a completed response. No login is required.
-          </p>
-        </div>
+      <div class="col-mid">
+        <main id="main">
 
-        <div class="split">
+          <figure class="hero-image">
+            <img src="./images/hero-contact.svg"
+                 alt="Title banner reading Get In Touch: feedback, questions, and internship enquiries"
+                 width="1200" height="380">
+          </figure>
 
-          <!-- Trust signals: a real address, a named person, a direct email,
-               and answers to the questions people actually ask. -->
-          <div>
-            <h2>Reach me directly</h2>
-            <ul class="contact-list">
-              <li>
-                <strong>EMAIL</strong>
-                <a href="mailto:jacknorby@icloud.com">jacknorby@icloud.com</a>
-              </li>
-              <li>
-                <strong>WHERE I AM</strong>
-                Iowa State University<br>
-                Ivy College of Business<br>
-                Ames, Iowa 50011
-              </li>
-              <li>
-                <strong>RESPONSE TIME</strong>
-                Within two business days.
-              </li>
-              <li>
-                <strong>LOOKING FOR</strong>
-                A marketing internship for summer 2027.
-              </li>
-            </ul>
-
-            <div class="callout">
-              <h3>Why any of this is here</h3>
+          <section class="section">
+            <div class="wrap">
+              <span class="eyebrow">CONTACT</span>
+              <h1>Tell me what worked and what did not</h1>
               <p>
-                Online, a visitor cannot see, hear or touch the person behind a page,
-                which leaves a credibility gap. A named person, a real location, a
-                direct email and a stated response time are the cheapest ways to
-                close it &mdash; so they go above the form, not buried under it.
+                The form below is short on purpose. Every extra field is friction
+                between a visitor and a finished reply, so I removed the ones I did
+                not need. No login is required to submit it.
               </p>
             </div>
+          </section>
 
-            <h2>Frequently asked</h2>
-            <div class="faq">
-              <details>
-                <summary>Do I need a Google account to submit the form?</summary>
-                <p>
-                  No. The form accepts responses from anyone with the link, and
-                  sign-in is not required. If you hit a permission screen, that is a
-                  bug — email me and I will fix the setting.
+          <section class="section" id="form">
+            <div class="wrap">
+              <div class="form-panel">
+                <h2>Site feedback form</h2>
+                <p>Five questions, about one minute.</p>
+
+                <div class="form-frame">
+                  <!-- ============================================================
+                       >>> PASTE YOUR GOOGLE FORM EMBED URL IN THE src BELOW <<<
+                       In Google Forms: Send > the < > (embed) tab > copy the src.
+                       It looks like:
+                       https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true
+                       Update the direct link below it to the same URL without
+                       ?embedded=true.
+                       Before submitting: Settings > Responses > turn OFF
+                       "Restrict to users in <org> and its trusted organizations",
+                       then confirm the live page loads in an incognito window.
+                       ============================================================ -->
+                  <iframe
+                    src="https://docs.google.com/forms/d/e/REPLACE_WITH_YOUR_FORM_ID/viewform?embedded=true"
+                    title="Site feedback form"
+                    width="100%"
+                    height="1100"
+                    loading="lazy">
+                    Loading the feedback form&hellip;
+                  </iframe>
+                </div>
+
+                <p class="form-note">
+                  Not showing? It may be blocked by your network or an
+                  extension.
+                  <a href="https://docs.google.com/forms/d/e/REPLACE_WITH_YOUR_FORM_ID/viewform"
+                     target="_blank" rel="noopener">Open it in a new tab</a>.
                 </p>
-              </details>
-              <details>
-                <summary>What happens to my response?</summary>
-                <p>
-                  Responses land in a private spreadsheet used only to improve this
-                  site. Nothing is shared, sold, or added to a mailing list, and the
-                  email field is optional.
-                </p>
-              </details>
-              <details>
-                <summary>Can I see the source code?</summary>
-                <p>
-                  Yes. The whole site is four HTML files, one stylesheet and one
-                  script, versioned in a public Git repository and deployed from it.
-                  I built it by hand for my web development coursework.
-                </p>
-              </details>
-              <details>
-                <summary>The form will not load on my network.</summary>
-                <p>
-                  Some campus and corporate networks block embedded frames. Use the
-                  direct link under the form, which opens the same form in a new tab.
-                </p>
-              </details>
+              </div>
             </div>
-          </div>
+          </section>
 
-          <!-- Embedded Google Form -->
-          <div class="form-panel">
-            <h2>Site feedback form</h2>
-            <p>Five questions, about one minute.</p>
-
-            <div class="form-frame">
-              <!-- ============================================================
-                   >>> PASTE YOUR GOOGLE FORM EMBED URL IN THE src BELOW <<<
-                   In Google Forms: Send > the < > (embed) tab > copy the src.
-                   It looks like:
-                   https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true
-                   Then update the two "Open the form in a new tab" links below
-                   to the same URL without ?embedded=true.
-                   Before submitting: Settings > Responses > turn OFF
-                   "Restrict to users in <org> and its trusted organizations",
-                   then confirm the live page loads in an incognito window.
-                   ============================================================ -->
-              <iframe
-                src="https://docs.google.com/forms/d/e/REPLACE_WITH_YOUR_FORM_ID/viewform?embedded=true"
-                title="Site feedback form"
-                width="100%"
-                height="1100"
-                loading="lazy">
-                Loading the feedback form&hellip;
-              </iframe>
+          <section class="section section--alt" id="reach">
+            <div class="wrap">
+              <h2>Reach me directly</h2>
+              <div class="grid grid--2">
+                <div>
+                  <ul class="contact-list">
+                    <li>
+                      <strong>EMAIL</strong>
+                      <a href="mailto:jacknorby@icloud.com">jacknorby@icloud.com</a>
+                    </li>
+                    <li>
+                      <strong>WHERE I AM</strong>
+                      Iowa State University<br>
+                      Ivy College of Business<br>
+                      Ames, Iowa 50011
+                    </li>
+                    <li>
+                      <strong>RESPONSE TIME</strong>
+                      Within two business days.
+                    </li>
+                    <li>
+                      <strong>LOOKING FOR</strong>
+                      A marketing internship for summer 2027.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="callout">
+                    <h3>Why any of this is here</h3>
+                    <p>
+                      Online, a visitor cannot see, hear or touch the person behind a
+                      page, which leaves a credibility gap. A named person, a real
+                      location, a direct email and a stated response time are the
+                      cheapest ways to close it, so they sit beside the form rather
+                      than buried under it.
+                    </p>
+                  </div>
+                  <div class="btn-row" style="margin-top:1rem">
+                    <a class="btn btn--primary" href="mailto:jacknorby@icloud.com">Email me</a>
+                  </div>
+                </div>
+              </div>
             </div>
+          </section>
 
-            <p class="form-note">
-              Form not showing? It may be blocked by your network or an extension.
-              <a href="https://docs.google.com/forms/d/e/REPLACE_WITH_YOUR_FORM_ID/viewform"
-                 target="_blank" rel="noopener">Open the form in a new tab</a>.
-            </p>
-          </div>
+          <section class="section" id="faq">
+            <div class="wrap">
+              <h2>Frequently asked</h2>
+              <div class="faq">
+                <details>
+                  <summary>Do I need a Google account to submit it?</summary>
+                  <p>
+                    No. It takes answers from anyone with the link, and signing in
+                    is not required. If you hit a permission screen that
+                    is a bug, so please email me and I will fix the setting.
+                  </p>
+                </details>
+                <details>
+                  <summary>What happens to my response?</summary>
+                  <p>
+                    Answers land in a private spreadsheet used only to improve this
+                    site. Nothing is shared, sold, or added to a mailing list, and
+                    the email field is optional.
+                  </p>
+                </details>
+                <details>
+                  <summary>Can I see the source code?</summary>
+                  <p>
+                    Yes. The whole site is four HTML files, one stylesheet and one
+                    script, versioned in a public Git repository and deployed from
+                    it. I built it by hand for my web development coursework.
+                  </p>
+                </details>
+                <details>
+                  <summary>It will not load on my network.</summary>
+                  <p>
+                    Some campus and corporate networks block embedded frames. Use the
+                    direct link above, which opens the same page in a new tab.
+                  </p>
+                </details>
+                <details>
+                  <summary>Are you available for marketing work?</summary>
+                  <p>
+                    I am looking for a marketing internship for summer 2027, and I am
+                    happy to talk about social media, content or campaign work before
+                    then. Email is the fastest way to reach me.
+                  </p>
+                </details>
+              </div>
+            </div>
+          </section>
 
-        </div>
+        </main>
       </div>
-    </section>
 
-    <section class="section section--alt">
-      <div class="wrap">
-        <div class="callout" style="max-width:none">
-          <h2>Prefer to skip the form?</h2>
-          <p>
-            Email works just as well, and so does opening an issue on the repository
-            if you have found a bug in the markup.
-          </p>
-          <div class="btn-row">
-            <a class="btn btn--primary" href="mailto:jacknorby@icloud.com">Email me</a>
-            <a class="btn btn--secondary" href="./portfolio.html">Back to the work</a>
-          </div>
-        </div>
-      </div>
-    </section>
+      <aside data-site-rail></aside>
+    </div>
 
-  </main>
+    <div data-site-footer></div>
+  </div>
 
-  <div data-site-footer></div>
   <script src="./nav.js"></script>
 </body>
 </html>
