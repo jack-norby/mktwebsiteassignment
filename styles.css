@@ -338,6 +338,18 @@ summary:focus-visible {
 }
 
 /* ---------- 8. Content blocks ---------- */
+/* Portrait photo. A 2:3 source, so the box declares that ratio and the image
+   covers it — no distortion if the photo is ever swapped for a different crop. */
+.photo {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+}
+
 .prose { max-width: var(--measure); }
 .prose h2 { margin-top: var(--space-5); }
 .prose h2:first-child { margin-top: 0; }
