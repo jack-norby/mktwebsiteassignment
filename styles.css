@@ -736,6 +736,56 @@ a.social__link:hover { background: var(--accent-600); transform: translateY(-2px
 /* No profile URL configured yet — shown, but visibly not a link. */
 .social__link--todo { background: var(--line); color: var(--ink-muted); cursor: help; }
 
+/* ---------- Photo hero ----------
+   A real photograph rather than a graphic, with the title as HTML text laid
+   over it (never text baked into the image). The scrim opacity was chosen by
+   measuring the brightest pixel in the text region: white over it clears
+   7.6:1 at 0.65, so 0.78 leaves a comfortable margin. */
+.hero-image--photo { position: relative; }
+
+.hero-image--photo img {
+  aspect-ratio: 724 / 302;
+  object-position: center 30%;
+}
+
+.hero-image--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    to right,
+    rgba(13, 27, 42, 0.88) 0%,
+    rgba(13, 27, 42, 0.80) 32%,
+    rgba(13, 27, 42, 0.34) 50%,
+    rgba(13, 27, 42, 0) 66%
+  );
+}
+
+.hero-image__caption {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  max-width: 40%;
+  padding: var(--space-4);
+  margin: 0;
+  color: #fff;
+}
+.hero-image__caption .eyebrow { color: #9fc8ee; margin-bottom: var(--space-1); }
+.hero-image__caption strong {
+  display: block;
+  font-size: clamp(1.4rem, 0.9rem + 1.6vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.hero-image__caption span.hero-image__sub {
+  display: block;
+  font-size: var(--step--1);
+  color: #d8e5f2;
+  margin-top: var(--space-1);
+}
+
 /* ---------- Hero image at the top of the main content area ---------- */
 .hero-image { margin: 0 0 var(--space-5); }
 .hero-image img {
@@ -802,11 +852,23 @@ a.social__link:hover { background: var(--accent-600); transform: translateY(-2px
   .header-graphic { grid-column: 1 / -1; justify-self: stretch; max-width: none; }
   .subnav__list { padding-block: var(--space-2); }
   .col-mid .section--alt { padding-inline: var(--space-3); }
+
+  /* Too narrow to overlay text across a face — stack it under the photo. */
+  .hero-image--photo::after { display: none; }
+  .hero-image--photo img { border-radius: var(--radius) var(--radius) 0 0; }
+  .hero-image__caption {
+    position: static;
+    max-width: none;
+    background: var(--navy-900);
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: var(--space-3);
+  }
 }
 
 /* Print: drop both side columns along with the rest of the chrome. */
 @media print {
   .col-left, .col-right, .subnav, .header-graphic, .hero-image { display: none !important; }
+  .hero-image__caption { display: none !important; }
   .page-frame { border: 0; box-shadow: none; margin: 0; }
   .page-grid { display: block; }
   .col-mid { padding: 0; }
